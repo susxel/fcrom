@@ -1,6 +1,6 @@
 #! /bin/bash
 
-if [ $1 ]; then
+if [ "$1" ]; then
 	filename=$1
 else
 	filename=`zenity --file-selection --title="Select .nes rom file"`
@@ -20,9 +20,9 @@ else
 	case $? in
 		0)
 			if [ ${hmap:0:1} ]; then
-				zenity --text-info --title="Mapper info" --width=1200 --height=1800 --html --url=https://www.nesdev.org/wiki/INES_Mapper_`printf "%03.0f" $((16#${hmap:0:1}${lmap:0:1}))`
+				zenity --text-info --title="Mapper info" --width=1200 --height=1200 --html --url=https://www.nesdev.org/wiki/INES_Mapper_`printf "%03.0f" $((16#${hmap:0:1}${lmap:0:1}))`
 			else
-				zenity --text-info --title="Mapper info" --width=1200 --height=1800 --html --url=https://www.nesdev.org/wiki/NES_2.0_Mapper_`printf "%03.0f" $((16#${hmap:0:1}${lmap:0:1}))`
+				zenity --text-info --title="Mapper info" --width=1200 --height=1200 --html --url=https://www.nesdev.org/wiki/NES_2.0_Mapper_`printf "%03.0f" $((16#${hmap:0:1}${lmap:0:1}))`
 			fi
 		;;
 		1)
